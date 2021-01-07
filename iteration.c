@@ -16,12 +16,12 @@ int main(int argc, char* argv[])
   // for testing only - do not change
   getTestInput(argc, argv, &div);
 
-
+printf("Looking for numbers divisible by %d\n", div);
   // add code below to complete 2.4 for any value of div 
 for (int i = 1; i <= 100; i++)
 {
 if (i%div == 0)
-	printf("%d is divisible by %d\n", i, div);
+	printf("%d is divisible\n", i);
 else
 	continue;
 } 
