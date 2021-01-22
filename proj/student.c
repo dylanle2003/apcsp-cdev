@@ -44,7 +44,7 @@ void deleteStudent(Student* student)
 free(student->firstName);
 free(student->lastName);
 free(student);
-  // free the memory associated with a student including the strings
+  
 }
 
 
@@ -82,13 +82,6 @@ for (int i = 0; i < numStudents; i++)
 fclose(fp);
 }
 }
-  // save all students in the student array to a file 'studentdata.txt' overwriting
-  // any existing file
-  //   - the format of the file is one line per student as follows fname lname age id:
-  //       tom thumb 15 1234 
-  //       james dean 21 2345 
-  //       katy jones 18 4532 
-
 
 
 void loadStudents(int key)
@@ -129,7 +122,6 @@ else
 	printf("loaded %d students", numStudents);
 	fclose(fp);
 }
-  // load the students from the data file overwriting all exisiting students in memory
 }
 
 

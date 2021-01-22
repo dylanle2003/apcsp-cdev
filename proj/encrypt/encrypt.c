@@ -1,3 +1,4 @@
+
 //
 // encrypt.c
 //
@@ -10,38 +11,36 @@
 char CHARS[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 int CHARS_LEN = 62;
 
+int find_index(char c)
+{
+for (int i = 0; i < 62; i++)
+	{
+		if (CHARS[i] == c)
+		{
+			return i;
+		}
+	}
+}
 
 char shiftChar(char c, int shift, int direction)
 {
+int trueshift;
+int index;
 
-signed int index;
-for (int i = 0; i < CHARS_LEN; i++)
+if (c == ' ')
 {
-	if (CHARS[i] == c)
-		index = i;
-}
-if (direction == 0){
-        index = index - shift;
+return ' ';
 }
 
 if (direction == 1){
-        index = index + shift;
+        trueshift = shift;
+} else {
+        trueshift = 62 - shift;
 }
 
+index = CHARS[(find_index(c) + trueshift) % 62];
 
-if (index < 0)
-{
-        index = index + 62;
-}
-
-if (index > 62)
-{
-        index = index - 62;
-}
-
-
-
-return CHARS[index];
+return index;
 }
 
 void encrypt(char str[], int shifts[], int shiftslen)
