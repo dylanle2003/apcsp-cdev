@@ -13,17 +13,36 @@ int CHARS_LEN = 62;
 
 char shiftChar(char c, int shift, int direction)
 {
-  // implement the character shift here:
-  //  given a char c shift it either forwards (direction == 1) or backwards (direction == 0)
-  //  use the CHARS array above
-  //  return the newly shifted char
-  //
-  // eg.
-  //   shiftChar('c', 3, 1) : 'f'
-  //   shiftChar('S', 2, 0) : 'P'
-  //   shiftChar('b', 3, 0) : '8'
+
+signed int index;
+for (int i = 0; i < CHARS_LEN; i++)
+{
+	if (CHARS[i] == c)
+		index = i;
+}
+if (direction == 0){
+        index = index - shift;
 }
 
+if (direction == 1){
+        index = index + shift;
+}
+
+
+if (index < 0)
+{
+        index = index + 62;
+}
+
+if (index > 62)
+{
+        index = index - 62;
+}
+
+
+
+return CHARS[index];
+}
 
 void encrypt(char str[], int shifts[], int shiftslen)
 {
